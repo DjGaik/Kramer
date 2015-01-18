@@ -1,0 +1,384 @@
+/*----------------------------------------------------------------------------------*/
+/*------------------------------RESET DEFAULT STYLES--------------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+html,body                       { width:100%; height:100%; }
+body                            { padding:0; margin:0; font:16px 'DroidSans', sans-serif; background:#fff; color:#000; }
+div,p,a,span,em,strong,img,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,td,tr,form,fieldset,label,select,checkbox,input,textarea {
+	padding:0;
+	margin:0;
+	outline:none;
+	list-style:none;
+}
+select, input, textarea        { font-size:12px; vertical-align:middle; }
+textarea                       { vertical-align:top; }
+:focus                         { outline:none; }
+input[type=submit]             { cursor:pointer; }
+img, fieldset                  { border:0; }
+table                          { border-collapse:collapse; border-spacing:0; }
+a:link, a:visited              { font:12px Tahoma, sans-serif; color:#000; text-decoration:none; }
+a:hover                        { text-decoration:none; color:red;}
+
+@font-face {
+	font-family: DroidSans;
+	src: url(../fonts/droid-sans.ttf);
+}
+
+@font-face {
+	font-family: DroidSans Bold;
+	src: url(../fonts/droid-sans-bold.ttf);
+}
+
+@font-face {
+	font-family: DroidSerif;
+	src: url(../fonts/droid-serif.ttf);
+}
+
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------DEFAULT CLASSES------------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+.float-r           	           { float:right !important; }
+.float-l                       { float:left !important; }
+.no-float                      { float:none !important; }
+.no-border                     { border:0 !important; }
+.no-bg                         { background:none !important; }
+.no-margin                     { margin:0 !important; }
+.no-padding                    { padding:0 !important; }
+.no-display                    { display:none !important; }
+.display                       { display:block !important; }
+.inline                        { display:inline !important; }
+.overflow                      { overflow:hidden !important; }
+.align-r                       { text-align:right !important; }
+.align-l                       { text-align:left !important; }
+.align-c                       { text-align:center !important; }
+.clear                         { clear:both; }
+
+@import "grids";
+
+@mixin cf {
+	&:after {
+		content: " ";
+		display: block;
+		clear: both;
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------WRAPPER--------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+video {
+	top:0%;
+	left:0%;
+	width: 100%;
+	background-size: cover;
+	position:absolute;
+	z-index: -1;
+	overflow: hidden;
+}
+
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------HEADER---------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+.container {
+	@include container();
+	height: 100%;
+}
+
+// header {
+// 	margin-top: 45px;
+// 	overflow: hidden;
+
+// 		h1 {
+// 			width: span (2 of 12);
+// 			@include push(1);
+// 			display: inline-block;
+// 			float: left;
+// 		}
+// 		nav {
+// 			overflow: hidden;
+// 			margin: 17px 100px 0 0;
+// 			float: right;
+// 			display: inline-block;
+// 				ul.nav li {
+// 					display: inline;
+// 					margin-left: 40px;
+// 						a {
+// 						font-size: 22px;
+// 						color: #fff;
+// 						font-family: 'DroidSans', sans-serif;
+						
+// 						}
+// 				}
+// 		}
+// }
+header {
+	margin-top: 45px;
+	overflow: hidden;
+	nav {
+		width: span (12 of 12);
+		h1 {
+			width: span (2 of 12);
+			@include push(1);
+			float: left;
+		}
+		ul.nav li {
+			display: inline;
+			margin-left: 40px;
+				a {
+				font-size: 22px;
+				color: #fff;
+				font-family: 'DroidSans', sans-serif;
+			}
+		}
+	}
+}
+
+.nav {
+	float: right;
+	margin-right: 100px;
+}
+.title a {
+	font-size: 27px;
+	font-family: DroidSerif, sans-serif;
+	color: #fff;
+	overflow: hidden;
+	margin-top: 130px;
+}
+
+section.title {
+	h3 {
+		margin: 0 auto;
+		width: span(8.5 of 12);
+		text-align: center;
+		font: 80px 'DroidSans Bold', sans-serif normal;
+		color: #fff;
+		display: block;
+		margin-top: 190px;
+	}
+}
+
+.explore {
+	@include cf;
+	width: span(2);
+	@include push(5.3);
+	height: 115px;
+	margin-top: 120px;
+	margin-bottom: 100px;
+	padding-top: 80px;
+	text-allign: centr;
+	display: block;
+	background: url('../images/explore-button.png') no-repeat;
+	background-position: 20px 0px;
+
+
+}
+
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------CONTENT--------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+.wrapabout {
+	background-color: #34495e; 
+}
+
+#about {
+	@include container();
+	h2 {
+		font-size: 45px;
+		font-family: DroidSans Bold, sans-serif;
+		color: #fff;
+		text-align: center;
+	}
+}
+
+.description {
+	@include span (8 of 12);
+	@include push(2);
+	font-size: 24px;
+	color: #fff;
+	font-family: DroidSans, sans-serif;
+	margin-top: 70px;
+	margin-bottom: 100px;
+	@media (max-width: 700px) {
+	// float: none; 
+		@include span (12);
+		width: 100%; 
+	}
+
+}
+
+.servises {
+	@include span (10);
+	@include push(1);
+	 li {
+		@include span (3 of 10);
+		@include push(0.2);
+		text-align: center;
+		@media (max-width: 800px) {
+			@include span (12);
+			float: none; 
+			width: 100%; 
+		}
+		&:last-child {
+			// @include span(3 last);
+			@media (max-width: 800px) {
+				@include span (12);
+				width: 100%; 
+			}
+		}
+		h4 {
+			font-size: 22px;
+			color: #fff;
+			font-family: DroidSans Bold, sans-serif;
+			margin: 30px 0 30px 0;
+		}
+		p {
+			margin-bottom: 115px;
+			font-family: DroidSerif, sans-serif;
+			margin-top: 20px;
+			color: #fff;
+		}
+	}
+}
+
+.wrapportfolio {
+	background-color: #fff;
+}
+
+#portfolio {
+	@include container();
+
+}
+#portfolio h2 {
+	margin-top: 125px;
+	margin-bottom: 80px;
+	font-size: 45px;
+	font-family: 'DroidSans Bold', sans-serif;
+	color: #000;
+	text-align: center;
+}
+
+ul.category {
+	text-align: center;
+	margin-bottom: 130px;
+}
+
+ul.category li {
+	display: inline-block;
+}
+
+ul.category li a {
+	display: inline-block;
+	margin: 0 30px;
+	font-size: 30px;
+	font-family: 'DroidSans', sans-serif;
+	color: #000;
+}
+
+.gallery {
+	margin-bottom: 65px;
+}
+
+.gallery li {
+	@include span(3.9);
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+input {
+	border-bottom: 1px solid green !important;
+	outline: none;
+}
+
+input[type="text"] {
+	border: none;
+	margin-bottom: 55px;
+}
+
+input[type="email"] {
+	border: none;
+	margin-bottom: 60px;
+}
+
+input[type="submit"] {
+	border: none !important;
+}
+
+textarea {
+	border: none;
+	border-bottom: 3px solid green !important;
+	margin-bottom: 30px;
+}
+
+.wrapteam {
+	background-color: #2980b9;
+}
+
+#team {
+	@include container();
+	h2 {
+		text-align: center;
+	}
+	ul li {
+		@include span(3.5);
+		@include push(1.5);
+		text-align: center;
+		@media (max-width: 800px) {
+			@include span (8);
+			// @include push(3);
+			float: none; 
+			// width: 100%;
+			// display: block;
+			// margin-bottom: 30px;
+		}
+	}
+}
+
+#contact {
+	@include container();
+}
+
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------FOOTER---------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+.wrapfooter {
+	background-color: #2c3e50;
+	footer {
+		@include container();
+		img.footerlogo {
+			margin: 75px 0 40px 100px;
+		}
+		.footercontacts li.adress {
+			@include span (2);
+			@include push(1);
+			@media (max-width: 800px) {
+				@include span (10);
+				@include push(2);
+				float: none; 
+				// width: 100%;
+				display: block;
+				margin-bottom: 30px;
+			}
+		}
+	}
+}
+ul.footersocial {
+	// @include span (4 of 5);
+	@include push(7);
+	// overflow: hidden;
+	@media (max-width: 800px) {
+				@include span (10);
+				@include push(2);
+				// float: none; 
+				// display: block;
+				margin-bottom: 30px;
+			}
+	li {
+		display: inline;
+		margin-right: 25px;
+	}
+}
